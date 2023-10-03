@@ -1,0 +1,12 @@
+{
+
+"PORT" : 5000,
+"m_host" : "108.181.157.248",
+"m_port" : 27271,
+"m_user" : "hazem10",
+"m_password" : "Azur@123",
+"m_database" : "nano-restaurant",
+"SESSION_SECRET" : "fejt9bsL3CjGxc5gx8dskvBxXxmxrLCJhpY4XdDxPvYsNkpqxCfbW5krDUGXMLmczhVuXJEHpprNQavG",
+"chromePath" : " \"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\" --ignore-certificate-errors",
+"mode" : "dev"
+}

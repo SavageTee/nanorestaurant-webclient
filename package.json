@@ -1,0 +1,37 @@
+{
+  "dependencies": {
+    "aes256": "^1.1.0",
+    "convert-excel-to-json": "^1.7.0",
+    "edge-js": "^16.6.0",
+    "express": "^4.18.2",
+    "express-mysql-session": "^2.1.7",
+    "express-session": "^1.17.2",
+    "formidable": "^2.0.1",
+    "fs": "^0.0.1-security",
+    "joi": "^17.6.0",
+    "mysql": "^2.18.1",
+    "nocache": "^3.0.3",
+    "nodemon": "^2.0.20",
+    "ntp-client": "^0.5.3",
+    "patch-package": "^6.4.7",
+    "pkg": "^5.8.1",
+    "spawn-sync": "^2.0.0",
+    "winston": "^3.6.0"
+  },
+  "pkg": {
+    "targets": [
+      "node16-win-x86",
+      "node16-win-x64"
+    ],
+    "assets": [
+      "Mysql provider",
+      "Pages/**/*"
+    ],
+    "icon": "teeccode.png",
+    "name": "Nano-Restaurant",
+    "description": "Nano-Restaurant",
+    "company": "#Teecode",
+    "version": "1.0.0",
+    "copyright": "#Teecode @2020"
+  }
+}
