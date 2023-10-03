@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>التحقق من الحجز</title>
+<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style/bootstrap-table.min.css">
+<link rel="stylesheet" type="text/css" href="style/all.css">
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<link href="style/all.css" rel="stylesheet">
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/popper.min.js"></script>
+<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="scripts/2c5ffe2754.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.15.4/extensions/print/bootstrap-table-print.js"></script>
+
+
+
+
+
+</head>
+
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a id="homepag" class="navbar-brand" href="/home/ar">Nano-Restaurant</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <div class="btn-group">
+            <button id="dropdownbutton" type="button" class="btn btn-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span  style=" vertical-align: middle;"  class="fas fa-sliders-h fa-lg "></span >  <span style=" vertical-align: middle;"  class="font-weight-bold h6">المتغيرات</span>     
+            </button>
+    
+          </div>
+        </li>
+       
+      </ul>
+        <button title="تسجيل الخروج" id = "logout" class="btn btn-outline-success"> <span style=" vertical-align: middle;" class="h6" id="username" ></span>  <span style=" vertical-align: middle;" class="fas fa-user fa-lg"></span></button>
+        <hr class="mx-1">
+        <button id = "langch" class="btn btn-outline-light"><span style=" vertical-align: middle;" class="h6" id="lang" ></span><span style=" vertical-align: middle;" class="fas fa-globe fa-lg"></span></button>
+        <hr class="mx-1">
+      
+        <hr class="mx-1">
+     
+
+    </div>
+  </nav>
+
+  <hr class="my-0">
+
+  <div id = "vardropdown" style="background-color: rgba(0, 0, 0, 0.5) !important; padding: 1em; display: none; "  class="jumbotron bg-light form-inline ">
+
+
+    <div  class="container">
+      <div class="row">
+          <div class="col-lg-3 d-flex align-items-stretch">
+            <div id="comvar" class="card text-white bg-info mb-3" style="max-width: 10rem;">
+              <div class="text-center card-header font-weight-bold ">متغيرات الشركه</div>
+              <div class="card-body">
+                <img class="card-img-top" src="gifs/sett.png" alt="Card image cap">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 d-flex align-items-stretch">
+            <div id="hotvar"  class="card text-white bg-info mb-3" style="max-width: 10rem;">
+              <div class="text-center card-header font-weight-bold ">الفنادق</div>
+              <div class="card-body">
+                <img class="card-img-top" src="gifs/hotels.png" alt="Card image cap">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 d-flex align-items-stretch">
+            <div id="resvar"  class="card text-white bg-info mb-3" style="max-width: 10rem;">
+              <div class="text-center card-header font-weight-bold ">المطاعم</div>
+              <div class="card-body">
+                <img class="card-img-top" src="gifs/restaurant.png" alt="Card image cap">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 d-flex align-items-stretch">
+            <div id="clovar"  class="card text-white bg-info mb-3" style="max-width: 10rem;">
+              <div class="text-center card-header font-weight-bold ">مواعد المطاعم</div>
+              <div class="card-body">
+                <img class="card-img-top" src="gifs/clock.png" alt="Card image cap">
+              </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+
+    
+
+  
+
+
+  
+
+
+  
+    
+   
+  </div>
+  
+    <div class="progress">
+      <div id="pbar" class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div hidden id = "alertcontain" class="form-inline justify-content-end alert alert-danger role="alert"><div id = "erroralert">اسم المستخدم خاطئ</div><div class="horizontalgap" style="width:20px"></div> <i class="far fa-window-close fa-2x float-left"></i> </div>
+
+
+    <br>
+    
+    <div id = "toolbar">
+
+        <div class="form-inline text-center jumbotron p-2 bg-primary m-0">
+          
+             <div class="input-group-prepend">
+               <span class="input-group-text font-weight-bold" id="basic-addon1">Room Number</span>
+             </div>
+             <input id="roomfilter" type="text" class="form-control border border-secondary text-center" placeholder="room" aria-label="Username" aria-describedby="basic-addon1">
+             <button id="clrrom" type="button" class="btn btn-danger font-weight-bold">X</button>
+
+             <hr class="mx-3">
+             <div class="input-group-prepend">
+              <span class="input-group-text font-weight-bold" id="basic-addon1">Pick a Date</span>
+            </div>
+           <input   id="datepicker"   class="form-control border border-secondary text-center"  type="date"/>
+           <button  id="clrdate" type="button" class="btn btn-danger font-weight-bold">X</button>
+           <hr class="mx-3">
+           <select id="restaurants" class="btn btn-light dropdown-toggle" aria-label=".form-select-lg example">
+            <option selected>Show all Restaurants</option>
+          </select>
+          <button id="clrslct" type="button" class="btn btn-danger font-weight-bold">X</button>
+          <hr class="mx-3">
+
+           <select id="hotels" class="btn btn-light dropdown-toggle" aria-label=".form-select-lg example">
+            <option selected>Show all Hotels</option>
+           </select>
+           <button id="clrhtl" type="button" class="btn btn-danger font-weight-bold">X</button>
+
+          <hr class="mx-3">
+
+
+
+          <button id="clrall" type="button" class="btn btn-danger font-weight-bold">الغاء الكل X</button>
+          <hr class="mx-1">
+          <button id="searchbutton" type="button" class="btn btn-dark font-weight-bold">   تطبيق     <i class="fas fa-search"></i> </button>
+          <hr class="mx-2">
+
+        </div>
+    </div>
+
+    <div class="container-fluid bg-light">
+      <div class="row justify-content-center">
+          <div class="col-12">
+            <div  data-height="460" class ="container-fluid table-striped">
+              <table id = 'tablereservation' lang="en" dir="ltr"
+                  data-toolbar="#toolbar"
+                  data-pagination = "false" 
+                  data-search = "true"
+                  data-search-align = "right"
+                  data-show-columns = "true"
+                  data-show-toggle = "true"
+                  data-show-refresh = "true"
+                  data-show-fullscreen = "true"
+                  data-show-pagination-switch = "true"
+                  data-show-pagination-pre-text = "true"
+                  data-show-pagination-next-text = "true"
+                  data-show-pagination-h-align = "true"
+                  data-show-pagination-h-align = "right"
+                  data-page-list= "[1,2,10, 20, 30, 40, 50, All]"
+                  data-loading-template="loadingTemplate"
+                  data-show-footer = "true"
+                  data-show-print="true"
+                  data-show-print= "true"
+                  data-print-page-builder: "Formatit"
+                  >
+                  <thead>
+                  <tr>    
+                  <th colspan="11" data-align="center">الحجز</th>
+                  </tr>
+                  <tr>
+                    <th class="text-center font-weight-bold"  data-formatter="formatcolor"  data-field = "rm" data-sortable = "true" data-switchable = "true">رقم الغرفه</th>
+                    <th class="text-center font-weight-bold"  data-field = "hotel" data-sortable = "true" data-switchable = "true">الفندق</th>
+                    <th class="text-center font-weight-bold"  data-formatter="formatcolor" data-field = "restaurant" data-sortable = "true" data-switchable = "true">المطعم</th>
+                    <th class="text-center font-weight-bold"  data-field = "capacity" data-sortable = "true" data-switchable = "true">سعه المطعم</th>
+                    <th class="text-center font-weight-bold"  data-formatter="formatdatedep" data-field = "departuredate" data-sortable = "true" data-switchable = "true">departuredate</th>
+                    <th class="text-center font-weight-bold"  data-formatter="formatcolor" data-field = "day" data-sortable = "true" data-switchable = "true">اليوم</th>
+                    <th class="text-center font-weight-bold"  data-formatter="formatdatearr" data-field = "arrivaldate" data-sortable = "true" data-switchable = "true">arrivaldate</th>
+                    <th class="text-center font-weight-bold"  data-field = "time" data-sortable = "true" data-switchable = "true">التوقيت</th>
+                    <th class="text-center font-weight-bold"  data-field = "name" data-formatter="count" data-sortable = "true" data-switchable = "true">PAX</th>
+                    <th class="text-center font-weight-bold"  data-field = "name" data-formatter="formatzbon" data-sortable = "true" data-switchable = "true">اسم النزيل</th>
+                    <th class="text-center font-weight-bold"  data-align="center" data-formatter="Action_edit">الادوات</th>
+                  </tr>
+                  </thead>
+              </table>
+           
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+   
+
+  <div id="verifymodal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">تاكيد</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="alert alert-success font-weight-bold">هل انت متاكد من تاكيد الحجز</p>
+        </div>
+        <div class="modal-footer">
+          <button id = "verify"type="button" class="btn btn-success">تاكيد</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div id="cancelmodal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">تاكيد</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body text-center">
+          <p class="alert alert-danger font-weight-bold">هل انت متاكد من الغاء الحجز</p>
+        </div>
+        <div class="modal-footer">
+          <button id = "cancel" type="button" class="btn btn-danger">تاكيد</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">اغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div style="z-index: -1;"  class='fixed-bottom bg-dark text-right m-10 p-10'>
+    <a id = "clock" class=" pl-2 float-left navbar-brand text-white display-6" href="#"></a>
+    <a id="footer" class="navbar-brand text-white display-6" href="#"></a>
+    <div id = "clock" onload="currentTime()"></div>   
+  </div>
+
+
+    <script type="text/javascript" src="scripts/script.js"></script>
+
+       
+        <script>
+    
+          function currentTime() {
+            let date = new Date(); 
+            let hh = date.getHours();
+            let mm = date.getMinutes();
+            let ss = date.getSeconds();
+            let session = "AM";
+            
+    
+          
+            if(hh === 0){
+                hh = 12;
+            }
+            if(hh > 12){
+                hh = hh - 12;
+                session = "PM";
+             }
+          
+             hh = (hh < 10) ? "0" + hh : hh;
+             mm = (mm < 10) ? "0" + mm : mm;
+             ss = (ss < 10) ? "0" + ss : ss;
+              
+             let time = hh + ":" + mm + ":" + ss + " " + session;
+          
+            document.getElementById("clock").innerText = date.toLocaleString('en-TT', { year:"numeric", day:"numeric",month:"numeric", hour: "numeric", hour12: true , minute: '2-digit', second: '2-digit' }); 
+            let t = setTimeout(function(){ currentTime() }, 1000);
+          }
+          
+          currentTime();
+    
+        </script>
+    
+    
+    
+
+<br><br><br><br><br><br>
+</body>
+
+
+</html>

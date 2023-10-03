@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Variables - Time And Prices</title>
+<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style/bootstrap-table.min.css">
+<link rel="stylesheet" type="text/css" href="style/all.css">
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<link href="style/all.css" rel="stylesheet">
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/popper.min.js"></script>
+<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="scripts/2c5ffe2754.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.15.4/extensions/print/bootstrap-table-print.js"></script>
+
+</head>
+
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+    <a id="homepag" class="navbar-brand" href="/home/ar">Nano-Restaurant</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <div class="btn-group">
+              <button id="dropdownbutton" type="button" class="btn btn-info" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span  style=" vertical-align: middle;"  class="fas fa-sliders-h fa-lg "></span >  <span style=" vertical-align: middle;"  class="font-weight-bold h6">Variables</span>     
+              </button>
+      
+            </div>
+          </li>
+         
+        </ul>
+        <hr class="mx-1">
+          <button title="تسجيل الخروج" id = "logout" class="btn btn-outline-success"> <span style=" vertical-align: middle;" class="h6" id="username" ></span>  <span style=" vertical-align: middle;" class="fas fa-user fa-lg"></span></button>
+          <hr class="mx-1">
+          <hr class="mx-1">
+      </div> 
+    </nav>
+    <div hidden  id = "alertcontain" class="form-inline justify-content-start alert alert-danger role="alert">  <i class="far fa-window-close fa-2x float-left"></i> <div class="horizontalgap" style="width:20px"></div> <div id = "erroralert"> اسم المستخدم خاطئ </div> </div>
+
+
+    <hr class="my-0">
+
+    <div id = "vardropdown" style="background-color: rgba(0, 0, 0, 0.5) !important; padding: 1em; display: none; "  class="jumbotron bg-light form-inline ">
+
+      <style>
+
+        .dropdown-menu {
+            padding: 10px;
+            width: 400px !important;
+            height: 490px !important;
+        
+            background-color:#f1f1f1
+        }
+            </style>
+      <div  class="container">
+        <div class="row justify-content-center">
+            <div id="comvarcd"  class="col-lg-2 d-flex align-items-stretch">
+              <div id="comvar" class="card text-white bg-info mb-3" style="max-width: 10rem;">
+                <div class="text-center card-header font-weight-bold ">Company Variables</div>
+                <div class="card-body">
+                  <img class="card-img-top" src="gifs/sett.png" alt="Card image cap">
+                </div>
+              </div>
+            </div>
+            <div id="hotvarcd" class="col-lg-2 d-flex align-items-stretch">
+              <div id="hotvar"  class="card text-white bg-info mb-3" style="max-width: 10rem;">
+                <div class="text-center card-header font-weight-bold ">Hotels</div>
+                <div class="card-body">
+                  <img class="card-img-top" src="gifs/hotels.png" alt="Card image cap">
+                </div>
+              </div>
+            </div>
+            <div id="resvarcd" class="col-lg-2 d-flex align-items-stretch">
+              <div id="resvar"  class="card text-white bg-info mb-3" style="max-width: 10rem;">
+                <div class="text-center card-header font-weight-bold ">Restaurants</div>
+                <div class="card-body">
+                  <img class="card-img-top" src="gifs/restaurant.png" alt="Card image cap">
+                </div>
+              </div>
+            </div>
+            <div id="clovarcd" class="col-lg-2 d-flex align-items-stretch">
+              <div id="clovar"  class="card text-white bg-info mb-3" style="max-width: 10rem;">
+                <div class="text-center card-header font-weight-bold ">Restaurants Time & Prices</div>
+                <div class="card-body">
+                  <img class="card-img-top" src="gifs/clock.png" alt="Card image cap">
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    </div>
+  
+
+   
+    <div  class="bg-light container-fluid m-0 pt-3">
+      <div class="row justify-content-center">
+
+        <div class="col-lg-2">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+         Add By Period
+        </button>
+      </div>
+
+        <div class="col-lg-2">
+          <select id="restaurants" class="btn btn-dark dropdown-toggle container-fluid" aria-label=".form-select-lg example">
+            <option selected>Choose Restaurant</option>
+          </select>
+        </div>
+
+        <div  class="col-lg-3">
+          <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text bg-dark text-white" id="basic-addon3">Please Select Time</span>
+          </div>
+          <input  class="container-fluid text-center form-control bg-dark text-white" type="date" id="resdate" name="birthday">
+        </div>
+      </div>
+
+
+      <div class="col-lg-2">
+        <button id="showrestaurant" class="container-fluid btn btn-dark" type="button">Show</button>
+      </div>
+
+
+      </div>
+    </div>
+
+
+
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+          <div style="display: none;" id="success" class="alert alert-success text-center role="alert">
+           Added Successfully
+          </div>
+
+          <div  hidden id = "alertcontainperiod" class="form-inline justify-content-start alert alert-danger role="alert">  <i class="far fa-window-close fa-2x float-left"></i> <div class="horizontalgap" style="width:20px"></div> <div id = "erroralertperiod"></div> </div>
+
+
+          <div class="form-inline pt-3 text-center align-items-center">   
+            
+
+            <div class="col-lg-2 mb-3">
+              <select id="restaurantsperiod" class="btn btn-dark dropdown-toggle container-fluid" aria-label=".form-select-lg example">
+                <option selected>Choose Restaurant</option>
+              </select>
+            </div>
+            
+
+              <div  class="col-lg-3  m-auto">
+                  <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text bg-dark text-white" id="basic-addon3">From</span>
+                  </div>
+                  <input  class="container-fluid text-center form-control bg-dark text-white" type="date" id="fromdate" name="birthday">
+                </div>
+              </div>
+              <div  class="col-lg-3 m-auto">
+                <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text bg-dark text-white" id="basic-addon3">To</span>
+                </div>
+                <input  class="container-fluid text-center form-control bg-dark text-white" type="date" id="todate" name="birthday">
+              </div>
+            </div>         
+        </div>
+
+          <div class="modal-body">
+                    <div  data-height="460" class ="container-fluid table-striped">
+                      <table id = 'periodtable' lang="en" dir="ltr"                                                                                                                                                                      
+                          data-show-pagination-next-text = "true"
+                          data-show-pagination-h-align = "true"
+                          data-show-pagination-h-align = "right"
+                          data-page-list= "[1,2,10, 20, 30, 40, 50, All]"
+                          data-loading-template="loadingTemplate"
+                          data-show-footer = "true"                             
+                          data-print-page-builder: "Formatit"
+                          >
+                          <thead>
+                          <tr>    
+                          <th colspan="3" data-align="center">Add Time</th>
+                          </tr>
+                          <tr>                     
+                            <th class="text-center font-weight-bold" data-footer-formatter="priceperiod"  data-field="priceperiod"  data-sortable = "true" data-switchable = "true">Price</th>
+                            <th class="text-center font-weight-bold" data-footer-formatter="dateperiod" data-field="dateperiod"   data-sortable = "true" data-switchable = "true">Time</th>
+                            <th class="text-center font-weight-bold"  data-align="center" data-footer-formatter="ACTIONperiod" data-formatter="Action_editperiod">Tools</th>                    
+                          </tr>
+                        </thead>
+                    </table>
+              </div>
+         
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            
+            <button id="addnow" type="button" class="btn btn-dark"><div id="spinnerss" hidden class="spinner-border text-light"></div> <div>Add Now</div></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <style>
+      .modal { padding: 0 !important;}
+      .modal .modal-dialog { width: 100%;max-width: none;height: 100%;margin: 0;}
+      .modal .modal-content {height: 100%;border: 0;border-radius: 0;}
+      .modal .modal-body {overflow-y: auto;}
+    </style>
+
+
+
+
+
+
+
+
+
+    <div hidden id="jumpheader" class="jumbotron bg-light container-fluid m-0">
+      <div id = "toolbar">
+          <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header p-0">
+              <img width="287px" height="150px" id="cardimage" src="..." >
+            </div>
+            <div class="card-body">
+              <h5 id ="cardname" class="card-title">...</h5>
+              <p id="cardcapa" class="card-text">...</p>
+              <p id="cardabout" class="card-text">...</p>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+      
+        <div class="container-fluid bg-light">
+          <div class="row justify-content-center xolos">
+              <div class="col-12">
+                <div  data-height="460" class ="container-fluid table-striped">
+                  <table hidden id = 'tabledatetime' lang="en" dir="ltr"                
+                      data-toolbar="#toolbar"
+                      data-pagination = "false" 
+                      data-search = "true"
+                      data-search-align = "right"
+                      data-show-columns = "true"
+                      data-show-toggle = "true"
+                      data-show-refresh = "true"
+                      data-show-fullscreen = "true"
+                      data-show-pagination-switch = "true"
+                      data-show-pagination-pre-text = "true"
+                      data-show-pagination-next-text = "true"
+                      data-show-pagination-h-align = "true"
+                      data-show-pagination-h-align = "right"
+                      data-page-list= "[1,2,10, 20, 30, 40, 50, All]"
+                      data-loading-template="loadingTemplate"
+                      data-show-footer = "true"
+                      data-show-print="true"
+                      data-show-print= "true"
+                      data-print-page-builder: "Formatit"
+                      >
+                      <thead>
+                      <tr>    
+                      <th colspan="3" data-align="center">المطاعم</th>
+                      </tr>
+                      <tr>                     
+                        <th id="th2" class="text-center font-weight-bold" data-footer-formatter="date"  data-sortable = "true" data-switchable = "true">السعر</th>
+                        <th id="th1" class="text-center font-weight-bold" data-footer-formatter="price"  data-sortable = "true" data-switchable = "true">الميعاد</th>
+                        <th class="text-center font-weight-bold"  data-align="center" data-footer-formatter="ACTION" data-formatter="Action_edit">الادوات</th>                    
+                      </tr>
+                    </thead>
+                </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    
+
+
+     
+      
+    
+
+
+<style>
+  .glow {
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    -webkit-animation: glow 0.5s ease-in-out infinite alternate;
+    -moz-animation: glow 0.5s ease-in-out infinite alternate;
+    animation: glow 0.5s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+  
+  
+  
+  </style>
+  
+  <div style="z-index: -1;"  class='fixed-bottom bg-dark text-right m-10 p-10'>
+    
+    <a id = "clock" class=" pl-2 float-left navbar-brand text-white display-6" href="#"></a>
+      <p  class="h4 p-2 text-light font-weight-bold border border-success  m-0 float-right navbar-brand text-white "> <i class="fa fa-refresh" aria-hidden="true"></i> <a id="lastupdate"></a> </p>
+    <a id="footer" class="navbar-brand text-white display-6" href="#"></a>
+    <div id = "clock" onload="currentTime()"></div>   
+  </div>
+  
+      <script type="text/javascript" src="scripts/script.js"></script>
+     
+      <script>
+  
+        function currentTime() {
+          let date = new Date(); 
+          let hh = date.getHours();
+          let mm = date.getMinutes();
+          let ss = date.getSeconds();
+          let session = "AM";
+          
+  
+        
+          if(hh === 0){
+              hh = 12;
+          }
+          if(hh > 12){
+              hh = hh - 12;
+              session = "PM";
+           }
+        
+           hh = (hh < 10) ? "0" + hh : hh;
+           mm = (mm < 10) ? "0" + mm : mm;
+           ss = (ss < 10) ? "0" + ss : ss;
+            
+           let time = hh + ":" + mm + ":" + ss + " " + session;
+        
+          document.getElementById("clock").innerText = date.toLocaleString('en-TT', { year:"numeric", day:"numeric",month:"numeric", hour: "numeric", hour12: true , minute: '2-digit', second: '2-digit' }); 
+          let t = setTimeout(function(){ currentTime() }, 1000);
+        }
+        
+        currentTime();
+  
+      </script>
+  
+  
+  
+  
+  </body>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  </html>
